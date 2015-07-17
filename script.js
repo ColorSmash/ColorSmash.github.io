@@ -132,6 +132,7 @@ function ConvertOne(){
 	coloredBox1.innerHTML = rgbVal1;
 
 	console.log(rgbVal1);
+	console.log(colorCheck);
 }
 
 function ConvertTwo(){
@@ -140,6 +141,7 @@ function ConvertTwo(){
 	coloredBox2.innerHTML = rgbVal2;
 
 	console.log(rgbVal2);
+	console.log(colorCheck2);
 }
 
 function ConvertThree(){
