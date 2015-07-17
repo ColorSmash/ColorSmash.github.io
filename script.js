@@ -130,27 +130,32 @@ function ConvertOne(){
 	
 	var rgbVal1 = convertToRGB(colorCheck);
 	coloredBox1.innerHTML = rgbVal1;
+
+	console.log(rgbVal1);
 }
 
 function ConvertTwo(){
 	
 	var rgbVal2 = convertToRGB(colorCheck2);
 	coloredBox2.innerHTML = rgbVal2;
+
+	console.log(rgbVal2);
 }
 
 function ConvertThree(){
 	
 	var rgbVal3 = convertToRGB(colorCheck3);
 	coloredBox3.innerHTML = rgbVal3;
-} 
 
+	console.log(rgbVal3);
+} 
 
 function convertToRGB(hexColorConvert){
 
 	var start = hexColorConvert.replace("#", "");
 
 	for(var q = 0; q < 6; q++){
-		
+
 		if(start.includes("A")){
 			start = start.replace("A","A");
 		}
@@ -503,7 +508,6 @@ function convertToRGB(hexColorConvert){
 	var BData = (fifthNum * 16) + sixthNum;
 
 	var rgbValue = RData + ", " + GData + ", " + BData;
-	isRGB = true;
 
 	return rgbValue;
 }
