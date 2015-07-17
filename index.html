@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ColorSmash</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+
+		<header>
+			<h1 id="title">ColorSmash</h1>
+		</header>
+		<div id="colorGroup">
+			<div id="pinBoard">
+				<h3 id="pinBoardTitle">Pin Board</h3>
+
+				<div id="pinnedColor" onclick="ConvertOne()">
+					<h3 id="Box1" class="boxText"></h3>	
+				</div>
+				<div id="pinnedColor2" onclick="ConvertTwo()">
+					<h3 id="Box2" class="boxText"></h3>
+				</div>
+				<div id="pinnedColor3" onclick="ConvertThree()">
+					<h3 id="Box3" class="boxText"></h3>
+				</div>
+			</div>
+			<button id="cButton" onclick="changeBackground()">Change</button>
+		</div>
+		<div id="info">
+			<input type="text" id="hexValue" name="HexValue">
+		</div>
+		
+		<div id="pinBox">
+			<button id="Pin" onclick="changeToColor()">Pin Color</button>
+		</div>
+		
+		<script src="script.js" type="text/javascript"></script>
+	</body>
+</html> 
+
+
+
+
+
+
