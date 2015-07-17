@@ -15,7 +15,6 @@ var count = 0;
 var color;
 var Squares = 0;
 var isRGB = false;
-var sound = new Audio("bloop.wav");
 
 hexTextBox.readOnly = true;
 hexTextBox.value = "Press the Change Button";
@@ -128,52 +127,27 @@ function changeToColor(){
 }
 
 function ConvertOne(){
-	if(!isRGB){
-
-
-	var v = convertToRGB(colorCheck);
-	coloredBox1.innerHTML = v;
-	}
-	else{
-		coloredBox1.innerHTML = colorCheck;
-	}
+	
+	var rgbVal1 = convertToRGB(colorCheck);
+	coloredBox1.innerHTML = rgbVal1;
 }
 
 function ConvertTwo(){
-	if(!isRGB){
-
-
-	var v2 = convertToRGB(colorCheck2);
-	coloredBox2.innerHTML = v2;
-	}
-	else{
-		coloredBox2.innerHTML = colorCheck2;
-	}
+	
+	var rgbVal2 = convertToRGB(colorCheck2);
+	coloredBox2.innerHTML = rgbVal2;
 }
 
 function ConvertThree(){
-	if(!isRGB){
-
 	
-	var v3 = convertToRGB(colorCheck3);
-	coloredBox3.innerHTML = v3;
-	}
-	else{
-		coloredBox3.innerHTML = colorCheck3;
-	}
+	var rgbVal3 = convertToRGB(colorCheck3);
+	coloredBox3.innerHTML = rgbVal3;
 } 
 
 
 function convertToRGB(hexColorConvert){
-//Setting all the numbers to letters
-	var rVal;
-
-	if(!isRGB){
-
-
 
 	var start = hexColorConvert.replace("#", "");
-
 
 	for(var q = 0; q < 6; q++){
 		if(start.includes("A")){
@@ -522,19 +496,15 @@ function convertToRGB(hexColorConvert){
 	if(start.substring(5,6).includes("P")){
 		var sixthNum = 9;
 	}
+
 	var RData = (firstNum * 16) + secondNum;
 	var GData = (thirdNum * 16) + fourthNum;
 	var BData = (fifthNum * 16) + sixthNum;
 
 	var rgbValue = RData + ", " + GData + ", " + BData;
 	isRGB = true;
+
 	return rgbValue;
-	}
-	else{
-		isRGB = false;
-	}
-
-
 }
 
 
