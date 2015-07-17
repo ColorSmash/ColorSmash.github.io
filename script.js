@@ -150,6 +150,7 @@ function convertToRGB(hexColorConvert){
 	var start = hexColorConvert.replace("#", "");
 
 	for(var q = 0; q < 6; q++){
+		
 		if(start.includes("A")){
 			start = start.replace("A","A");
 		}
