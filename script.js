@@ -81,14 +81,15 @@ function pinToBoard(){
 		var tempColor = "#" + hexColor;
 		
 		if(bananas === true){
+
 			var savingHex = {
+
 				valueHex: 12345
 			}
+
 			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 			bananas = false;	
 		}
-
-
 		
 		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
 
@@ -98,10 +99,12 @@ function pinToBoard(){
 			colorCheck = "#" + hexColor;
 
 			var savingHex = {
+
 				valueHex: colorCheck
 			}
-			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 
+			localStorage.setItem("hexValue", JSON.stringify(savingHex));
+			localStorage.del
 			coloredBox1.innerHTML = colorCheck;
 			coloredBox1.style.backgroundColor = colorCheck;
 
@@ -119,8 +122,10 @@ function pinToBoard(){
 
 			colorCheck2 = "#" + hexColor;
 			var savingHex = {
+
 				valueHex: colorCheck2
 			}
+
 			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 			coloredBox2.innerHTML = colorCheck2;
 			coloredBox2.style.backgroundColor = colorCheck2;
@@ -139,9 +144,12 @@ function pinToBoard(){
 		   tempColor !== coloredBox2.innerHTML && tempColor !== valueOfHex.valueHex){
 
 			colorCheck3 = "#" + hexColor;
+			
 			var savingHex = {
+
 				valueHex: colorCheck3
 			}
+
 			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 			coloredBox3.innerHTML = colorCheck3;
 			coloredBox3.style.backgroundColor = colorCheck3;
@@ -205,47 +213,57 @@ function ConvertThree(){
 		isRGB3 = false;
 	}
 }
-//You are here
+
 function saveOne(){
 
 	var saveColorOne = {
+
 		colorOneValue: colorCheck
 	}
 
 	localStorage.setItem("colorOne", JSON.stringify(saveColorOne));
 }
+
 function loadOne(){
 
 	var loadColors = JSON.parse(localStorage.getItem("colorOne"));
 	coloredBox1.innerHTML = loadColors.colorOneValue;
+	localStorage.removeItem("colorOne");
 }
+
 function saveTwo(){
 
 	var saveColorTwo = {
+
 		colorTwoValue: colorCheck2
 	}
 
 	localStorage.setItem("colorTwo", JSON.stringify(saveColorTwo));
 }
+
 function loadTwo(){
 
 	var loadColors2 = JSON.parse(localStorage.getItem("colorTwo"));
 	coloredBox2.innerHTML = loadColors2.colorTwoValue;
+	localStorage.removeItem("colorTwo");
 }
+
 function saveThree(){
 
 	var saveColorThree = {
+
 		colorThreeValue: colorCheck3
 	}
 
 	localStorage.setItem("colorThree", JSON.stringify(saveColorThree));
 }
+
 function loadThree(){
 
 	var loadColors3 = JSON.parse(localStorage.getItem("colorThree"));
 	coloredBox3.innerHTML = loadColors3.colorThreeValue;
+	localStorage.removeItem("colorThree");
 }
-
 
 function convertToRGB(hexColorConvert){
 
@@ -589,9 +607,7 @@ function convertToRGB(hexColorConvert){
 	var rgbValue = "(" + RData + ", " + GData + ", " + BData + ")";
 	
 
-	return rgbValue;
-
-	
+	return rgbValue;	
 }
 
 
