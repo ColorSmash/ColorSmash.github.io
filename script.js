@@ -16,7 +16,7 @@ var pinSquare = 0;
 var isRGB = false;
 var isRGB2 = false;
 var isRGB3 = false;
-
+var bananas = true;
 
 hexTextBox.readOnly = true;
 hexTextBox.value = "Press the Change Button";
@@ -79,10 +79,17 @@ function pinToBoard(){
 	if(pinSquare === 0){
 
 		var tempColor = "#" + hexColor;
-		var savingHex = {
-			valueHex: 12345
+		
+		if(bananas === true){
+			var savingHex = {
+				valueHex: 12345
+			}
+			localStorage.setItem("hexValue", JSON.stringify(savingHex));
+			bananas = false;	
 		}
-		localStorage.setItem("hexValue", JSON.stringify(savingHex));
+
+
+		
 		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
 
 		if(tempColor !== coloredBox2.innerHTML &&
