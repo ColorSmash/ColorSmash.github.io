@@ -5,20 +5,20 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-		<link rel="icon" href="favicon.ico"/>
+		<link rel="icon" href="/favicon.ico"/>
 	</head>
 	<body>
 
 		<header>
-			<a href="about.html"><h1 id="title">ColorSmash</h1></a>
+			<h1 id="title"><a href="about.html">ColorSmash</a></h1>
 		</header>
 		<div id="colorGroup">
 			<div id="pinBoard">
 				<h3 id="pinBoardTitle">Pin Board</h3>
 
-				<div id="pinnedColor" onclick="ConvertOne()"></div>
-				<div id="pinnedColor2" onclick="ConvertTwo()"></div>
-				<div id="pinnedColor3" onclick="ConvertThree()"></div>
+				<div id="pinnedColor" onclick="ConvertOne(); saveOne()"></div>
+				<div id="pinnedColor2" onclick="ConvertTwo(); saveTwo()"></div>
+				<div id="pinnedColor3" onclick="ConvertThree(); saveThree()"></div>
 			</div>
 			<button id="cButton" onclick="changeBackground()">Change</button>
 		</div>

@@ -13,6 +13,10 @@ var colorCheck2;
 var colorCheck3;
 var count = 0;
 var pinSquare = 0;
+var isRGB = false;
+var isRGB2 = false;
+var isRGB3 = false;
+
 
 hexTextBox.readOnly = true;
 hexTextBox.value = "Press the Change Button";
@@ -75,11 +79,17 @@ function pinToBoard(){
 	if(pinSquare === 0){
 
 		var tempColor = "#" + hexColor;
-
+		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
+			
 		if(tempColor !== coloredBox2.innerHTML &&
-		   tempColor !== coloredBox3.innerHTML){
+		   tempColor !== coloredBox3.innerHTML && tempColor !== valueOfHex.valueHex){
 
-			colorCheck = "#" +hexColor;
+			colorCheck = "#" + hexColor;
+
+			var savingHex = {
+				valueHex: colorCheck
+			}
+			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 
 			coloredBox1.innerHTML = colorCheck;
 			coloredBox1.style.backgroundColor = colorCheck;
@@ -91,12 +101,16 @@ function pinToBoard(){
 	else if(pinSquare === 1){
 
 		var tempColor = "#" + hexColor;
+		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
 
 		if(tempColor !== coloredBox3.innerHTML &&
-		   tempColor !== coloredBox1.innerHTML){
+		   tempColor !== coloredBox1.innerHTML && tempColor !== valueOfHex.valueHex){
 
 			colorCheck2 = "#" + hexColor;
-
+			var savingHex = {
+				valueHex: colorCheck2
+			}
+			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 			coloredBox2.innerHTML = colorCheck2;
 			coloredBox2.style.backgroundColor = colorCheck2;
 
@@ -107,12 +121,17 @@ function pinToBoard(){
 	else if(pinSquare === 2){
 
 		var tempColor = "#" + hexColor;
+		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
+		
 
 		if(tempColor !== coloredBox1.innerHTML &&
-		   tempColor !== coloredBox2.innerHTML){
+		   tempColor !== coloredBox2.innerHTML && tempColor !== valueOfHex.valueHex){
 
 			colorCheck3 = "#" + hexColor;
-
+			var savingHex = {
+				valueHex: colorCheck3
+			}
+			localStorage.setItem("hexValue", JSON.stringify(savingHex));
 			coloredBox3.innerHTML = colorCheck3;
 			coloredBox3.style.backgroundColor = colorCheck3;
 
@@ -133,29 +152,95 @@ function pinToBoard(){
 
 function ConvertOne(){
 	
-	var rgbVal = convertToRGB(colorCheck);
+	if(isRGB === false){
 
-	coloredBox1.innerHTML = rgbVal;
+		var rgbVal = convertToRGB(colorCheck);
+		coloredBox1.innerHTML = rgbVal;
+		isRGB = true;
+		
+	}else if(isRGB){
+
+		loadOne();
+		isRGB = false;
+	}
 }
 
 function ConvertTwo(){
-	
-	var rgbVal = convertToRGB(colorCheck2);
 
-	coloredBox2.innerHTML = rgbVal;
+	if(isRGB2 === false){
+
+		var rgbVal = convertToRGB(colorCheck2);
+		coloredBox2.innerHTML = rgbVal;	
+		isRGB2 = true;
+
+	}else if(isRGB2){
+
+		loadTwo();
+		isRGB2 = false;
+	}
 }
 
 function ConvertThree(){
-	
-	var rgbVal = convertToRGB(colorCheck3);
 
-	coloredBox3.innerHTML = rgbVal;
+	if(isRGB3 === false){
+
+		var rgbVal = convertToRGB(colorCheck3);
+		coloredBox3.innerHTML = rgbVal;
+		isRGB3 = true;
+
+	}else if(isRGB3){
+
+		loadThree();
+		isRGB3 = false;
+	}
 }
+//You are here
+function saveOne(){
+
+	var saveColorOne = {
+		colorOneValue: colorCheck
+	}
+
+	localStorage.setItem("colorOne", JSON.stringify(saveColorOne));
+}
+function loadOne(){
+
+	var loadColors = JSON.parse(localStorage.getItem("colorOne"));
+	coloredBox1.innerHTML = loadColors.colorOneValue;
+}
+function saveTwo(){
+
+	var saveColorTwo = {
+		colorTwoValue: colorCheck2
+	}
+
+	localStorage.setItem("colorTwo", JSON.stringify(saveColorTwo));
+}
+function loadTwo(){
+
+	var loadColors2 = JSON.parse(localStorage.getItem("colorTwo"));
+	coloredBox2.innerHTML = loadColors2.colorTwoValue;
+}
+function saveThree(){
+
+	var saveColorThree = {
+		colorThreeValue: colorCheck3
+	}
+
+	localStorage.setItem("colorThree", JSON.stringify(saveColorThree));
+}
+function loadThree(){
+
+	var loadColors3 = JSON.parse(localStorage.getItem("colorThree"));
+	coloredBox3.innerHTML = loadColors3.colorThreeValue;
+}
+
 
 function convertToRGB(hexColorConvert){
 
+	
 	var start = hexColorConvert.replace("#", "");
-
+	
 	for(var q = 0; q < 6; q++){
 
 		if(start.includes("0")){
@@ -491,9 +576,14 @@ function convertToRGB(hexColorConvert){
 	var BData = (fifthNum * 16) + sixthNum;
 
 	var rgbValue = "(" + RData + ", " + GData + ", " + BData + ")";
+	
 
 	return rgbValue;
+
+	
 }
+
+
 
 
 
