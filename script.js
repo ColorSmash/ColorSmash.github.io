@@ -570,7 +570,7 @@ function convertToRGB(hexColorConvert){
 	if(start.substring(5,6).includes("P")){
 		var sixthNum = 9;
 	}
-
+	
 	var RData = (firstNum * 16) + secondNum;
 	var GData = (thirdNum * 16) + fourthNum;
 	var BData = (fifthNum * 16) + sixthNum;
