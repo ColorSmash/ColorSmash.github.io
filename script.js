@@ -79,8 +79,12 @@ function pinToBoard(){
 	if(pinSquare === 0){
 
 		var tempColor = "#" + hexColor;
+		var savingHex = {
+			valueHex: 12345
+		}
+		localStorage.setItem("hexValue", JSON.stringify(savingHex));
 		var valueOfHex = JSON.parse(localStorage.getItem("hexValue"));
-			
+
 		if(tempColor !== coloredBox2.innerHTML &&
 		   tempColor !== coloredBox3.innerHTML && tempColor !== valueOfHex.valueHex){
 
